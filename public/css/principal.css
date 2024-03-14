@@ -22,6 +22,14 @@
     color: white;
 }
 
+.bt1:hover {
+    background-color: #1abc9c;
+    color: white;
+}
+.bta:hover {
+    background-color: #1abc9c;
+    color: white;
+}
 .botao-importar{
     display:inline-block; 
 }

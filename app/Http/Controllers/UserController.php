@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Controllers\api\HolidayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\TurmasController;
 
 class UserController extends Controller
 {
-    public function login()
-    {
-        return view('welcome');
-
-    }
+   
 
     public function auth(Request $request)
     {
@@ -25,7 +20,7 @@ class UserController extends Controller
             'password.required' => 'Senha é obrigatória',
         ]);
         if(Auth::attempt(['name'=> $request->name,'password'=> $request->password])){
-            return  redirect()->action([TurmasController::class, 'index']);
+            return  redirect()->action([HolidayController::class, 'index']);
         }else{
             return redirect()->back()->with('danger','Usuário ou senha inválida');
         }

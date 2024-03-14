@@ -2,6 +2,7 @@ h1 {
     color: #E1DEE3;
     text-align: center;
     margin-left: 150px;
+
     
 }
 
@@ -14,19 +15,7 @@ h2 {
 
 
 /*Alinha titulo e logomarca*/
-.topo{
-    display: table;
-    float:center;
-}
 
-.logo{
-    display: table-cell;
-    float:left; /*logo ufcat*/
-}
-.titulo{
-    display: table-cell;
-    
-}
 /*-------------------------------------*/
 .container {
     max-width: 500px;
@@ -36,7 +25,7 @@ h2 {
 
 
 
-form {
+/*form {
     align-items: center;
     justify-content: center;
     background-color: #29797C;
@@ -52,15 +41,15 @@ form {
     border: medium;
     border-radius: 20px;
     border: 2px solid #FF6C22;
-}
+}*/
 
-form h2{
+/*form h2{
     color: #E1DEE3;
     text-align:center;
     font-size: 50px;
     margin-left: 0px;
     
-}
+}*/
 
 .input-single {
     position: relative;
@@ -84,34 +73,7 @@ form h2{
     font-size: 25px;
     border-radius: 6px;
 }
-/*botao login*/
-.btn {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    margin-right: -100px;
-}
 
-.btn2 {
-    width: 100%;
-    text-align: center;
-    
-    
-}
-
-.btn3 {
-    width: 100%;
-    text-align: center;
-    
-    
-}
-
-.btn4 {
-    width: 100%;
-    text-align: center;
-    
-    
-}
 
 
 form input[type=submit] {

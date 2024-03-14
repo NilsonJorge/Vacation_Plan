@@ -1,5 +1,3 @@
-
-/*Alinha titulo e logomarca*/
 .topo{
     display: table;
     float:center;
@@ -7,19 +5,34 @@
 
 .logo{
     display: table-cell;
-    float:left; /*logo ufcat*/
+    float:left; 
 }
 .titulo{
+    padding-left: 270px;
     display: table-cell;
-    text-align: center;
-    
+    margin-left: 100px;
+
 }
-/*-------------------------------------*/
-.container {
-    max-width: 500px;
-    margin: auto auto;
+/*Select box*/
+.plataforma{
+    border: 2px solid #FF6C22;
+    border-radius: 6px;
+    color: #29797C;
+    font-size: 20px;
 }
 
+.bts {
+    border: 2px solid #FF6C22;
+    border-radius: 6px;
+    background-color: white; 
+    color: #1abc9c; 
+    font-size: 20px;
+}
+  
+.bts:hover {
+    background-color: #1abc9c;
+    color: white;
+}
 
 
 /*Caixa de texto*/
@@ -60,23 +73,7 @@
     
     
 }
-form {
-    align-items: center;
-    justify-content: center;
-    background-color: #29797C;
 
-    
-
-    height: 600px;
-
-    width: 1000px;
-
-    padding: 40px;
-
-    border: medium;
-    border-radius: 20px;
-    border: 2px solid #FF6C22;
-}
 
 form .titulo{
     text-align: center;
@@ -105,15 +102,11 @@ form h2{
     
 }
 
-
 body{
     color: #29797C;
-    text-align: center;
+    
 
 }
-
-
-
 
 table, th,td{
     border: 2px solid #FF6C22;
@@ -129,11 +122,21 @@ table, th,td{
     text-align: auto;
 }
 
-/*tr:hover{
-    background-color: #48b4b8;
-    
-}*/
-
 .bt{
     border-color: #FF6C22;   
+    text-align: center;
 }
+.botao-voltar{
+    display:inline-block;
+}
+.botao-adicionar{
+    display:inline-block;
+}
+.botao-remover{
+    display:inline-block;
+    
+}
+.botao-finalizar{
+    display:inline-block;
+}
+
