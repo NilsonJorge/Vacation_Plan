@@ -1,0 +1,44 @@
+h1 {
+    color: #E1DEE3;
+    text-align: center;
+    margin-left: 150px;
+    
+}
+
+h2 {
+    color: #E1DEE3;
+    text-align: center;
+    margin-left: 150px;
+    
+}
+
+
+/*Alinha titulo e logomarca*/
+.topo{
+    display: table;
+    float:center;
+}
+
+.logo{
+    display: table-cell;
+    float:left; /*logo ufcat*/
+}
+.titulo{
+    display: table-cell;
+    
+}
+tbody {
+    display:block;
+    max-height:295px;
+    overflow-y:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+thead {
+    width: calc( 100% - 1em )
+} 
+
+

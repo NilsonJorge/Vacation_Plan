@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TurmasController;
 use App\Http\Controllers\AlocadorController;
+use App\Http\Controllers\SalaController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +31,24 @@ Route::middleware(['auth'])->group(function()
 Route::post('/importar-turmas', [TurmasController::class,'import']);
 Route::post('/alocar-salas', [AlocadorController::class,'automatica']);
 Route::post('/deleta', [AlocadorController::class,'delete']);
-Route::post('/finalizar-alocacao', [TurmasController::class,'finalizar']);
+//Route::post('/finalizar-alocacao', [TurmasController::class,'finalizar']);
+Route::post('/finalizar-alocacao', [SalaController::class,'index']);
+
 
 Route::get('/logout', function(){
     return view('welcome');
 });
+Route::get('/tabela', function(){
+    return view('tabela');
+});
+
+Route::get('/salas', function(){
+    return view('salas');
+});
+
+/*Route::get('/teste', function(){
+    return view([SalaController::class,'index']);
+});*/
 
 /*Route::get('/principal',function(){
     return view('principal');
