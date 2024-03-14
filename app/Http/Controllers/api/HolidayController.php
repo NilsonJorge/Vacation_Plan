@@ -20,13 +20,7 @@ class HolidayController extends Controller
          return Holiday::all();
      }
  
- 
-     public function create()
-     {
-         //
-     }
- 
-  
+     
      public function store(Request $request)
      {
          $request->validate([
@@ -36,7 +30,13 @@ class HolidayController extends Controller
              'location'=> ['required','string'],
              'participants'=>['nullable','string'],
          ]);
-         Holiday::create($request->all());
+         $holiday = Holiday::create($request->all());
+
+         if ($holiday) {
+            return response()->json(['message' => 'Holiday created successfully'], 201);
+        } else {
+            return response()->json(['error' => 'Failed to create holiday'], 500);
+        }
      }
  
     
@@ -46,19 +46,16 @@ class HolidayController extends Controller
      }
      public function createPDF(Request $request, string $id)
      {
-         // Obtenha os dados do feriado
+         //Data colection
          $holiday = Holiday::findOrFail($id);
-     
-         // Crie uma nova instância do TCPDF
+         
          $pdf = new TCPDF();
      
-         // Defina o título do documento
          $pdf->SetTitle('Holiday Details');
      
-         // Adicione uma nova página ao PDF
          $pdf->AddPage();
      
-         // Crie o conteúdo do PDF
+         // Construction of PDF
          $content = '<h1>Holiday Details</h1>';
          $content .= '<p>Title: ' . $holiday->title . '</p>';
          $content .= '<p>Description: ' . $holiday->description . '</p>';
@@ -66,10 +63,8 @@ class HolidayController extends Controller
          $content .= '<p>Location: ' . $holiday->location . '</p>';
          $content .= '<p>Participants: ' . $holiday->participants . '</p>';
      
-         // Adicione o conteúdo ao PDF
          $pdf->writeHTML($content);
      
-         // Saída do PDF como uma resposta HTTP
          return Response::make($pdf->Output(), 200, [
              'Content-Type' => 'application/pdf',
              'Content-Disposition' => 'inline; filename="holiday_details.pdf"',
@@ -80,14 +75,18 @@ class HolidayController extends Controller
      {
          $holiday =  Holiday::findOrFail($id);
          $holiday->update($request->all());
+
+         if ($holiday) {
+            return response()->json(['message' => 'Holiday Plan updated successfully'], 201);
+        } else {
+            return response()->json(['error' => 'Failed to update holiday plan'], 500);
+        }
      }
  
-     /**
-      * Remove the specified resource from storage.
-      */
      public function destroy(string $id)
      {
          $holiday =  Holiday::findOrFail($id);
          $holiday->delete();
+         return response()->json(['message' => 'Holiday plan successfully deleted'], 200);
      }
 }
