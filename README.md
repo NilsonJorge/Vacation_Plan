@@ -1,7 +1,7 @@
 
 # Vacation Plan API
 
- Available in : https://github.com/NilsonJorge/Vacation_Plan
+ Available in : [Vacaton Plan Repository](https://github.com/NilsonJorge/Vacation_Plan)
 
 This API was developed using the Laravel Framework and aims to manage vacation plans throughout the year. It works with the following data:
 
