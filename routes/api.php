@@ -11,4 +11,4 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('holiday', HolidayController::class);
     Route::get('holiday/{id}/pdf', [HolidayController::class, 'createPDF']);
 });
-//Route::resources(['holiday'=> HolidayController::class]);
+

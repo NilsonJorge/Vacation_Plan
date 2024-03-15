@@ -20,7 +20,7 @@ class HolidayController extends Controller
          return Holiday::all();
      }
  
-     
+  
      public function store(Request $request)
      {
          $request->validate([
@@ -61,7 +61,9 @@ class HolidayController extends Controller
          $content .= '<p>Description: ' . $holiday->description . '</p>';
          $content .= '<p>Date: ' . $holiday->date . '</p>';
          $content .= '<p>Location: ' . $holiday->location . '</p>';
-         $content .= '<p>Participants: ' . $holiday->participants . '</p>';
+         if ($holiday->participants != null) {
+            $content .= '<p>Participants: ' . $holiday->participants . '</p>';
+         }
      
          $pdf->writeHTML($content);
      
