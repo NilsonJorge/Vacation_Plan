@@ -19,7 +19,7 @@ class HolidayController extends Controller
     
      public function index()
      {
-         return Holiday::all();
+         return response()-> json(Holiday::all());
      }
  
   
