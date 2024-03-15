@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Holiday;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use TCPDF;
 class HolidayController extends Controller
 {
@@ -74,16 +76,22 @@ class HolidayController extends Controller
      }
  
      public function update(Request $request, string $id)
-     {
-         $holiday =  Holiday::findOrFail($id);
-         $holiday->update($request->all());
+{
+    try {
+        $holiday = Holiday::findOrFail($id);
 
-         if ($holiday) {
-            return response()->json(['message' => 'Holiday Plan updated successfully'], 201);
-        } else {
-            return response()->json(['error' => 'Failed to update holiday plan'], 500);
-        }
-     }
+        $holiday->update($request->all());
+
+        // return updated holiday
+        return response()->json($holiday);
+    } catch (ModelNotFoundException $e) {
+
+        return response()->json(['error' => 'Holiday not found'], 404);
+    } catch (\Exception $e) {
+
+        return response()->json(['error' => 'Failed to update holiday plan'], 500);
+    }
+}
  
      public function destroy(string $id)
      {
